@@ -54,32 +54,57 @@
 // )
 
 //fourth exercise - promise.all
-const promise1 = new Promise((resolve, reject) => {
+// const promise1 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise 1');
+//     }, 1000);
+//     });
+
+// const promise2 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise 2');
+//     }, 2000);
+//     });
+
+// const promise3 = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise 3');
+//     }, 3000);
+//     });
+
+// Promise.all([promise1, promise2, promise3]).then((messages) => {
+//     console.log('All the promises are resolved');
+//     messages.forEach((message,index) => {
+//         console.log('Promise ' + (index + 1) + ': ' + message);
+//     });
+    
+    
+
+// }).catch((error) => {
+//     console.log(error);
+//     });
+
+//Promise race
+const fastPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Promise 1');
     }, 1000);
     });
 
-const promise2 = new Promise((resolve, reject) => {
+const mediumPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Promise 2');
     }, 2000);
     });
 
-const promise3 = new Promise((resolve, reject) => {
+const slowPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve('Promise 3');
     }, 3000);
     });
 
-Promise.all([promise1, promise2, promise3]).then((messages) => {
-    console.log('All the promises are resolved');
-    messages.forEach((message,index) => {
-        console.log('Promise ' + (index + 1) + ': ' + message);
-    });
-    
-    
-
-}).catch((error) => {
+Promise.race([fastPromise, mediumPromise, slowPromise]).then((message) => {
+    console.log('The fastest promise is ' + message);
+    }).catch((error) => {
     console.log(error);
     });
