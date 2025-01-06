@@ -85,26 +85,51 @@
 //     });
 
 //Promise race
-const fastPromise = new Promise((resolve, reject) => {
+// const fastPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise 1');
+//     }, 1000);
+//     });
+
+// const mediumPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise 2');
+//     }, 2000);
+//     });
+
+// const slowPromise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise 3');
+//     }, 3000);
+//     });
+
+// Promise.race([fastPromise, mediumPromise, slowPromise]).then((message) => {
+//     console.log('The fastest promise is ' + message);
+//     }).catch((error) => {
+//     console.log(error);
+//     });
+
+// Promise.any
+const promiseA = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('Promise 1');
+        reject('Promise A');
     }, 1000);
     });
 
-const mediumPromise = new Promise((resolve, reject) => {
+const promiseB = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('Promise 2');
+        resolve('Promise B');
     }, 2000);
     });
 
-const slowPromise = new Promise((resolve, reject) => {
+const promiseC = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve('Promise 3');
+        resolve('Promise C');
     }, 3000);
     });
 
-Promise.race([fastPromise, mediumPromise, slowPromise]).then((message) => {
-    console.log('The fastest promise is ' + message);
+Promise.any([promiseA, promiseB, promiseC]).then((message) => {
+    console.log('The first promise to resolve is ' + message);
     }).catch((error) => {
     console.log(error);
     });
