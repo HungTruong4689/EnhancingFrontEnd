@@ -110,26 +110,52 @@
 //     });
 
 // Promise.any
-const promiseA = new Promise((resolve, reject) => {
+// const promiseA = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         reject('Promise A');
+//     }, 1000);
+//     });
+
+// const promiseB = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise B');
+//     }, 2000);
+//     });
+
+// const promiseC = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//         resolve('Promise C');
+//     }, 3000);
+//     });
+
+// Promise.any([promiseA, promiseB, promiseC]).then((message) => {
+//     console.log('The first promise to resolve is ' + message);
+//     }).catch((error) => {
+//     console.log(error);
+//     });
+
+// promisying a callback function
+function getData(callback){
     setTimeout(() => {
-        reject('Promise A');
+        callback(null,'Data received');
     }, 1000);
-    });
+    
+}
 
-const promiseB = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve('Promise B');
-    }, 2000);
+function getDataPromise(){
+    return new Promise((resolve, reject) => {
+        getData((error, data) => {
+            if(error){
+                reject(error);
+            }else{
+                resolve(data);
+            }
+        });
     });
+}
 
-const promiseC = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve('Promise C');
-    }, 3000);
-    });
-
-Promise.any([promiseA, promiseB, promiseC]).then((message) => {
-    console.log('The first promise to resolve is ' + message);
+getDataPromise().then((data) => {
+    console.log(data);
     }).catch((error) => {
     console.log(error);
     });
