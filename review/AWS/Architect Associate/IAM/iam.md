@@ -64,3 +64,24 @@ This example role allows EC2 instances to assume the role and perform actions de
 - **Federated Users**: Allow users from an external identity provider to access AWS resources.
 
 For more information, refer to the [AWS IAM Roles documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
+
+## Security Tools
+
+AWS provides several security tools to help you manage and secure your AWS environment:
+
+### AWS Identity and Access Management (IAM)
+IAM enables you to manage access to AWS services and resources securely. You can create and manage AWS users and groups, and use permissions to allow and deny their access to AWS resources.
+
+### AWS CloudTrail
+AWS CloudTrail records AWS API calls for your account and delivers log files to you. The recorded information includes the identity of the API caller, the time of the API call, the source IP address of the API caller, the request parameters, and the response elements returned by the AWS service.
+
+### AWS Config
+AWS Config provides a detailed view of the configuration of AWS resources in your account. This includes how resources are related to one another and how they were configured in the past, so you can see how the configurations and relationships change over time.
+
+### AWS Trusted Advisor
+AWS Trusted Advisor is an online resource to help you reduce cost, increase performance, and improve security by optimizing your AWS environment. Trusted Advisor provides real-time guidance to help you provision your resources following AWS best practices.
+
+### AWS Security Hub
+AWS Security Hub gives you a comprehensive view of your high-priority security alerts and compliance status across AWS accounts. Security Hub aggregates, organizes, and prioritizes your security alerts, or findings, from multiple AWS services.
+
+For more information, refer to the [AWS Security documentation](https://aws.amazon.com/security/).
