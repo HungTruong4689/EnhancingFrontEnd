@@ -70,3 +70,24 @@ console.log(person.ssn); // Error: Property 'ssn' is private and only accessible
 ```
 
 By using `private` and `public` access modifiers, you can control the visibility and encapsulation of your class members in TypeScript.
+
+## Shorthand for Private Members
+
+TypeScript also provides a shorthand for defining and initializing private members directly in the constructor. This can make your code more concise.
+
+```typescript
+class Car {
+    constructor(private brand: string, public model: string) {}
+
+    public getBrand(): string {
+        return this.brand;
+    }
+}
+
+const car = new Car('Toyota', 'Corolla');
+console.log(car.model); // Accessible
+console.log(car.getBrand()); // Accessible
+console.log(car.brand); // Error: Property 'brand' is private and only accessible within class 'Car'.
+```
+
+In this example, the `brand` property is defined and initialized in the constructor using the `private` keyword, while the `model` property is defined and initialized using the `public` keyword.
