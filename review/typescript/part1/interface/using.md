@@ -55,3 +55,33 @@ const admin: Admin = {
 ## Conclusion
 
 Interfaces are a powerful feature in TypeScript that help ensure your objects have the correct structure, making your code more robust and maintainable.
+
+
+## Implementing an Interface in a Class
+
+Classes can implement interfaces to ensure they adhere to a specific structure. Use the `implements` keyword to implement an interface in a class:
+
+```typescript
+class Person implements User {
+    name: string;
+    age: number;
+    email?: string;
+
+    constructor(name: string, age: number, email?: string) {
+        this.name = name;
+        this.age = age;
+        if (email) {
+            this.email = email;
+        }
+    }
+
+    greet(): void {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+}
+
+const person = new Person("Alice", 28, "alice@example.com");
+person.greet(); // Output: Hello, my name is Alice
+```
+
+By implementing the `User` interface, the `Person` class is required to have the `name` and `age` properties, and optionally the `email` property.
