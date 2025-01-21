@@ -58,3 +58,14 @@ To restrict access to your content based on geographic location:
 Using geolocation with Amazon CloudFront allows you to enhance the user experience by serving customized content and restricting access based on geographic location.
 
 For more information, refer to the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html).
+
+
+## Additional Resources
+
+For more detailed information on geo restriction and other features of Amazon CloudFront, you can refer to the following resources:
+
+- [Amazon CloudFront Geo Restriction](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/georestrictions.html): Official documentation on how to configure geo restrictions in CloudFront.
+- [AWS Lambda@Edge](https://docs.aws.amazon.com/lambda/latest/dg/lambda-edge.html): Learn how to use Lambda@Edge to run code closer to your users and customize content delivery.
+- [Amazon CloudFront Pricing](https://aws.amazon.com/cloudfront/pricing/): Understand the pricing model for CloudFront, including costs associated with geo restriction and other features.
+
+These resources will help you get a deeper understanding of how to effectively use geolocation and geo restriction with Amazon CloudFront.
