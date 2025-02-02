@@ -11,17 +11,18 @@ const random_index = Math.floor(Math.random()*DUMMY_USERS.length);
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
-  @Input({required:true}) id!:string ;
-  @Input({required:true}) avatar!:string ;
-  @Input({required:true}) name!:string ;
+  // @Input({required:true}) id!:string ;
+  // @Input({required:true}) avatar!:string ;
+  // @Input({required:true}) name!:string ;
+  @Input({required:true}) user! :  {id:string, name:string, avatar:string};
   @Output() select = new EventEmitter();
 
   get imagePath(){
-    return 'assets/users/' + this.avatar;
+    return 'assets/users/' + this.user.avatar;
   }
 
   onSelectUser(  ){
-     this.select.emit(this.id); // pass id to parent componentng
+     this.select.emit(this.user.id); // pass id to parent componentng
     // this.selectedUser = DUMMY_USERS[Math.floor(Math.random()*DUMMY_USERS.length)];
   }
 }
