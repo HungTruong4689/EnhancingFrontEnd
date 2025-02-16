@@ -9,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServerStatusComponent implements OnInit{
   currentStatus : 'online'| 'offline' | 'unknown' = 'online';
+  private interval? :ReturnType<typeof setInterval>;
 
   constructor(){
     
   }
 
   ngOnInit(){
-    setInterval(() => {
+    console.log('on init');
+    this.interval =setInterval(() => {
       const rnd = Math.random();
       if(rnd<0.5){
         this.currentStatus = 'online';
@@ -25,5 +27,15 @@ export class ServerStatusComponent implements OnInit{
         this.currentStatus = 'unknown';
       }
     },3000);
+  }
+  ngViewAfterInit(){
+    console.log('after init');
+  }
+
+  ngOnDestroy(){
+    console.log('destroy');
+    if(this.interval){
+      clearInterval(this.interval);
+    }
   }
 }
